@@ -301,6 +301,7 @@ bool SyncWorker::syncNow()
             localStatus[LS_BODIES_WANTED] = 0; // pretend we want no message contents
             localStatus[LS_SYNCED_MIN_UID] = 1; // pretend we have scanned all the way to the oldest message
             localStatus[LS_UIDNEXT] = remoteStatus.uidNext();
+            localStatus[LS_BUSY] = false;
             store->saveFolderStatus(folder.get(), initialLocalStatus);
             continue;
         }
